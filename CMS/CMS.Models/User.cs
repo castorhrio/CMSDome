@@ -10,9 +10,7 @@ namespace CMS.Models
     public class User
     {
         [Key]
-        public int UserID { get; set; }
-
-        public int GroupID { get; set; }
+        public Guid UserID { get; set; }
 
         [Required(ErrorMessage = "用户名不能为空")]
         [StringLength(20,MinimumLength = 4,ErrorMessage = "用户名为{1}到{0}个字符")]
@@ -35,12 +33,10 @@ namespace CMS.Models
         /// </summary>
         public int Status { get; set; }
 
-        public DateTime RegistTime { get; set; }
+        public DateTime? RegistTime { get; set; }
 
-        public DateTime LoginTime { get; set; }
+        public DateTime? LoginTime { get; set; }
 
-        public DateTime LoginIP { get; set; }
-
-        public virtual UserGroup Group { get; set; }
+        public string LoginIP { get; set; }
     }
 }

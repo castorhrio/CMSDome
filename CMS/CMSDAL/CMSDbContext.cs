@@ -13,11 +13,13 @@ namespace CMSDAL
         public DbSet<User> Users { get; set; }
         public DbSet<UserConfig> UserConfigs { get; set; }
 
-        public DbSet<UserGroup> UserGroups { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
-        public CMSDbContext() : base("DefaultConnection")
+        public DbSet<UserRoleRelation> UserRoleRelations { get; set; }
+
+        public CMSDbContext() : base("CMS")
         {
-            
+            Database.CreateIfNotExists();
         }
     }
 }
