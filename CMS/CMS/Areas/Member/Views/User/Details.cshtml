@@ -9,7 +9,7 @@
 @Scripts.Render("~/bundles/jqueryval")
 
 <div class="row">
-    <div class="col-md-3 col-sm-4">@Html.Action("Index")</div>
+    <div class="col-md-3 col-sm-4">@Html.Action("Menu")</div>
     <div class="col-md-9 col-sm-8">
         <ol class="breadcrumb">
             <li><span class="glyphicon glyphicon-home"><a>会员中心</a></span></li>
@@ -17,18 +17,18 @@
             <li>修改资料</li>
         </ol>
 
-        @using (Html.BeginForm("Index", "Home"))
+        @using (Html.BeginForm("Modify", "User"))
         {
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
                 <h4>用户资料</h4>
-                <hr/>
+                <hr />
                 @Html.ValidationSummary(true)
                 @Html.HiddenFor(m => m.UserID)
 
                 <div class="form-group">
-                    @Html.LabelFor(m => m.UserName, new {@class = "control-label col-md-2"})
+                    @Html.LabelFor(m => m.UserName, new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(m => m.UserName)
                         @Html.ValidationMessageFor(m => m.UserName)
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new {@class = "control-label col-md-2"})
+                    @Html.LabelFor(m => m.Email, new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(m => m.Email)
                         @Html.ValidationMessageFor(m => m.Email)
@@ -44,15 +44,15 @@
                 </div>
 
                 @*<div class="form-group">
-                    <label class="control-label col-md-2">用户组</label>
-                    <div class="col-md-10">
-                       @foreach(var item in Model.)
-                    </div>
-                </div>*@
+                        <label class="control-label col-md-2">用户组</label>
+                        <div class="col-md-10">
+                           @foreach(var item in Model.)
+                        </div>
+                    </div>*@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="修改" class="btn btn-default"/>
+                        <input type="submit" value="修改" class="btn btn-default" />
                     </div>
                 </div>
             </div>

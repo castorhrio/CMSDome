@@ -1,5 +1,5 @@
 ﻿@using System.Web.Optimization
-@model CMS.Models.LoginViewModel
+@model CMS.Areas.Member.Models.LoginViewModel
 
 @{
     ViewBag.Title = "会员登录";
@@ -9,13 +9,13 @@
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/jqueryval")
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Login","User",new {returnUrl = ViewBag.ReturnUrl},FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         <h4>会员登录</h4>
-        <hr/>
+        <hr />
 
         @Html.ValidationSummary(true)
 
@@ -29,7 +29,7 @@
 
 
         <div class="form-group">
-            @Html.LabelFor(m => m.Password, new {@class = "control-label col-md-2"})
+            @Html.LabelFor(m => m.Password, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(m => m.Password)
                 @Html.ValidationMessageFor(m => m.Password)
@@ -37,7 +37,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(m => m.RemenberMe, new {@class = "control-label col-md-2"})
+            @Html.LabelFor(m => m.RemenberMe, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(m => m.RemenberMe)
                 @Html.ValidationMessageFor(m => m.RemenberMe)
@@ -46,7 +46,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="登录" class="btn btn-default"/>
+                <input type="submit" value="登录" class="btn btn-default" />
             </div>
         </div>
     </div>
